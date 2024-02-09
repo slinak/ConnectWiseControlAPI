@@ -9,7 +9,7 @@ function Get-CWCSession {
         [int]$Limit
     )
 
-    $Endpoint = 'Services/PageService.ashx/GetHostSessionInfo'
+    $BaseLiveDataEndpoint = 'Services/PageService.ashx/GetLiveData'
 
     switch($Type){
         'Support' { $Number = 0 }
@@ -22,7 +22,7 @@ function Get-CWCSession {
     Write-Verbose $Body
 
     $WebRequestArguments = @{
-        Endpoint = $Endpoint
+        Endpoint = $BaseLiveDataEndpoint
         Body = $Body
         Method = 'Post'
     }
